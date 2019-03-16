@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ListView lv = findViewById(R.id.lv_list);
         FloatingActionButton fab = findViewById(R.id.fab);
+
+        // mengambil username default dari login
         String username = PrefsHelper.sharedInstance(getApplicationContext()).getNameDefault();
         BookHelper helper = new BookHelper(this);
 
@@ -54,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, Inserting.class));
             }
         });
+
+        // cek username
         if (username.equals("admin")) {
             registerForContextMenu(lv);
         }
