@@ -34,10 +34,19 @@ public class Login extends AppCompatActivity {
                 if (et_user.getText().equals("") || et_pass.getText().equals("")) {
                     Toast.makeText(getApplicationContext(), "Username atau password kosong", Toast.LENGTH_SHORT).show();
                 } else {
-                    PrefsHelper.sharedInstance(getApplicationContext()).setNameDefault(et_user.getText().toString());
-                    PrefsHelper.sharedInstance(getApplicationContext()).setLogin(true);
-                    startActivity(new Intent(Login.this, MainActivity.class));
-                    finish();
+                    if (et_user.getText().equals("admin") || et_pass.getText().equals("password123")) {
+                        PrefsHelper.sharedInstance(getApplicationContext()).setNameDefault(et_user.getText().toString());
+                        PrefsHelper.sharedInstance(getApplicationContext()).setLogin(true);
+                        startActivity(new Intent(Login.this, MainActivity.class));
+                        finish();
+                    } else if (et_user.getText().equals("pengguna") || et_pass.getText().equals("pengguna123")) {
+                        PrefsHelper.sharedInstance(getApplicationContext()).setNameDefault(et_user.getText().toString());
+                        PrefsHelper.sharedInstance(getApplicationContext()).setLogin(true);
+                        startActivity(new Intent(Login.this, MainActivity.class));
+                        finish();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Username atau password salah", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
